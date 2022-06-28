@@ -16,6 +16,7 @@ import BoardAdmin from "./components/board-admin.component";
 
 import EventBus from "./common/EventBus";
 
+
 type Props = {};
 
 type State = {
@@ -24,7 +25,10 @@ type State = {
   currentUser: IUser | undefined
 }
 
+
+
 class App extends Component<Props, State> {
+  
   constructor(props: Props) {
     super(props);
     this.logOut = this.logOut.bind(this);

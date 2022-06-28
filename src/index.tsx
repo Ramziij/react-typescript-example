@@ -5,11 +5,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+import { StyledEngineProvider } from '@mui/material/styles';
+import Demo from './demo';
+
 ReactDOM.render(
   <BrowserRouter>
     <App />
   </BrowserRouter>,
   document.getElementById('root')
+);
+
+ReactDOM.render(
+    <StyledEngineProvider injectFirst>
+      <Demo />
+    </StyledEngineProvider>,
+  document.querySelector('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
