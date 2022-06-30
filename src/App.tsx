@@ -15,7 +15,7 @@ import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 
 import EventBus from "./common/EventBus";
-import { MuiSpeedDial } from "./components/MuiSpeedDial";
+import MuiSpeedDial  from "./components/MuiSpeedDial";
 
 
 type Props = {};

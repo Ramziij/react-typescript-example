@@ -4,7 +4,7 @@ import HelpIcon from '@mui/icons-material/Help';
 import { useState } from 'react'
 import Popover from '@mui/material/Popover';
 
-export const MuiSpeedDial = () => {
+    const MuiSpeedDial = () => {
     const [open, setIsOpen] = useState(false)
     const handleClick = () => setIsOpen(true);
     const handleClose = () => setIsOpen(false);
@@ -31,5 +31,8 @@ export const MuiSpeedDial = () => {
         </SpeedDial>
         
         
+        
     )
 }
+
+export default MuiSpeedDial
