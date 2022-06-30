@@ -15,6 +15,7 @@ import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 
 import EventBus from "./common/EventBus";
+import { MuiSpeedDial } from "./components/MuiSpeedDial";
 
 
 type Props = {};
@@ -72,6 +73,7 @@ class App extends Component<Props, State> {
 
     return (
       <div>
+        <MuiSpeedDial />
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
             bezKoder
