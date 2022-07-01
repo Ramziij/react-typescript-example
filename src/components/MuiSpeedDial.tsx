@@ -1,34 +1,49 @@
 import * as React from 'react';
 import SpeedDial from '@mui/material/SpeedDial';
 import HelpIcon from '@mui/icons-material/Help';
-import { useState } from 'react'
 import { Popover } from '@reactour/popover';
+import { useState} from 'react'
+import { Placeholder, doSteps } from '../utils'
+import { TourProvider } from '@reactour/tour'
+
 
     const MuiSpeedDial = () => {
     const [isOpen, setIsOpen] = useState(false)
-  
+    const demoId = 'close-click'
+    const steps = doSteps(demoId)
+   
+
+   
+        
   return (
+
+    
         <SpeedDial 
         ariaLabel="Navigation speed dial"
         sx={{ position: 'absolute', bottom: 20, right: 16 }}
         icon={<HelpIcon />}
         onClick={() => setIsOpen((o)=>!o)}
         >
-            {isOpen ?(
-            <Popover position="center">
-            <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-            Ab minima numquam vel dolore amet quos iure at! Aut, nisi eaque dignissimos 
-            totam officiis soluta quod ullam nostrum excepturi, possimus ratione.
-            </p>
-            </Popover>
-        ):null}
+            <TourProvider
+                steps={steps}
+                onClickClose={({ setCurrentStep, currentStep, setIsOpen }) => {
+                if (currentStep === steps.length - 1) {
+                setIsOpen(false)
+                }
+                setCurrentStep(s => (s === steps.length - 1 ? 0 : s + 1))
+                }}
+>
+                 <Placeholder demoId={demoId} />
+            </TourProvider>
+           
 
         
         </SpeedDial>
+
+
         
         
-        
+       
         
         
     )
