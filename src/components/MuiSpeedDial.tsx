@@ -2,7 +2,7 @@ import * as React from 'react';
 import SpeedDial from '@mui/material/SpeedDial';
 import HelpIcon from '@mui/icons-material/Help';
 import { useState } from 'react'
-import Popover from '@reactour/tour';
+import { Popover } from '@reactour/popover';
 
     const MuiSpeedDial = () => {
     const [isOpen, setIsOpen] = useState(false)
