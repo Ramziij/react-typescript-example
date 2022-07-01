@@ -3,8 +3,9 @@ import SpeedDial from '@mui/material/SpeedDial';
 import HelpIcon from '@mui/icons-material/Help';
 import { Popover } from '@reactour/popover';
 import { useState} from 'react'
-import { Placeholder, doSteps } from '../utils'
+import ReactPlaceholder from 'react-placeholder'
 import { TourProvider } from '@reactour/tour'
+import  doSteps  from ''
 
 
     const MuiSpeedDial = () => {
@@ -33,7 +34,7 @@ import { TourProvider } from '@reactour/tour'
                 setCurrentStep(s => (s === steps.length - 1 ? 0 : s + 1))
                 }}
 >
-                 <Placeholder demoId={demoId} />
+                 <ReactPlaceholder demoId={demoId} />
             </TourProvider>
            
 
