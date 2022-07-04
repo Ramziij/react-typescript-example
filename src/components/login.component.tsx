@@ -5,6 +5,22 @@ import * as Yup from "yup";
 
 import AuthService from "../services/auth.service";
 
+import MuiSpeedDial  from "./MuiSpeedDial";
+import { StepType, TourProvider } from '@reactour/tour'
+
+const steps:StepType[] = [
+  {
+    selector: '.form-group-1',
+    content: 'Enter your username',
+  },
+  {
+    selector:'.form-group-2',
+    content: 'Enter your password',
+  }
+]
+
+
+
 interface RouterProps {
   history: string;
 }
@@ -78,6 +94,9 @@ export default class Login extends Component<Props, State> {
 
     return (
       <div className="col-md-12">
+          <TourProvider steps={steps}>
+          <MuiSpeedDial />
+          </TourProvider>
         <div className="card card-container">
           <img
             src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
@@ -85,13 +104,15 @@ export default class Login extends Component<Props, State> {
             className="profile-img-card"
           />
 
+          
+
           <Formik
             initialValues={initialValues}
             validationSchema={this.validationSchema}
             onSubmit={this.handleLogin}
           >
             <Form>
-              <div className="form-group">
+              <div className="form-group-1">
                 <label htmlFor="username">Username</label>
                 <Field name="username" type="text" className="form-control" />
                 <ErrorMessage
@@ -101,7 +122,7 @@ export default class Login extends Component<Props, State> {
                 />
               </div>
 
-              <div className="form-group">
+              <div className="form-group-2">
                 <label htmlFor="password">Password</label>
                 <Field name="password" type="password" className="form-control" />
                 <ErrorMessage
