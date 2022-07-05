@@ -4,7 +4,7 @@ import * as Yup from "yup";
 
 import AuthService from "../services/auth.service";
 
-import MuiSpeedDial  from "./MuiSpeedDial";
+import MuiSpeedDial  from "./UI/SpeedDial/MuiSpeedDial";
 import { StepType, TourProvider } from '@reactour/tour'
 
 type Props = {};
@@ -120,15 +120,16 @@ export default class Register extends Component<Props, State> {
 
     return (
       <div className="col-md-12">
-          <TourProvider steps={steps}>
-          <MuiSpeedDial />
-          </TourProvider>
         <div className="card card-container">
           <img
             src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
             alt="profile-img"
             className="profile-img-card"
           />
+
+          <TourProvider steps={steps}>
+          <MuiSpeedDial />
+          </TourProvider>
 
           <Formik
             initialValues={initialValues}

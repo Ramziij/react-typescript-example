@@ -5,21 +5,8 @@ import * as Yup from "yup";
 
 import AuthService from "../services/auth.service";
 
-import MuiSpeedDial  from "./MuiSpeedDial";
+import MuiSpeedDial  from "./UI/SpeedDial/MuiSpeedDial";
 import { StepType, TourProvider } from '@reactour/tour'
-
-const steps:StepType[] = [
-  {
-    selector: '.form-group-1',
-    content: 'Enter your username',
-  },
-  {
-    selector:'.form-group-2',
-    content: 'Enter your password',
-  }
-]
-
-
 
 interface RouterProps {
   history: string;
@@ -33,6 +20,17 @@ type State = {
   loading: boolean,
   message: string
 };
+
+const steps:StepType[] = [
+  {
+    selector: '.form-group-1',
+    content: 'Enter your username',
+  },
+  {
+    selector:'.form-group-2',
+    content: 'Enter your password',
+  }
+]
 
 export default class Login extends Component<Props, State> {
   constructor(props: Props) {
@@ -94,9 +92,6 @@ export default class Login extends Component<Props, State> {
 
     return (
       <div className="col-md-12">
-          <TourProvider steps={steps}>
-          <MuiSpeedDial />
-          </TourProvider>
         <div className="card card-container">
           <img
             src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
@@ -104,7 +99,9 @@ export default class Login extends Component<Props, State> {
             className="profile-img-card"
           />
 
-          
+          <TourProvider steps={steps}>
+          <MuiSpeedDial />
+          </TourProvider>
 
           <Formik
             initialValues={initialValues}
